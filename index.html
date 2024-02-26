@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(120deg, #ff0062, #2a4ed3, #f5790b);
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 100%;
+            width: 350px;
+            box-shadow: 0px 0px 10px 12px black;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="password"] {
+            height: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #1357a7;
+            color: white;
+            border: 2px solid black;
+            position: relative;
+            display: flex;
+            top: 22px;
+            left: 96px;
+            padding: 4px 30px 4px 30px;
+            text-align: center;
+            border-radius: 9px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #f08787;
+        }
+
+
+        .goto {
+            padding-top: 12px;
+            display: inline-block
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+        <h1>REGISTER PAGE</h1>
+        <label for="">UserName</label>
+        <input type="text" name="" id="username" required placeholder="Enter Username">
+        <br><br>
+        <label for="">E-Mail</label>
+        <input type="email" id="e-mail" required placeholder="E-mail">
+        <br><br>
+        <label for="">DOB</label>
+        <input type="date" required id="dob">
+        <br><br>
+        <label for="">Password</label>
+        <input type="password" name="" id="password" required placeholder="Password">
+        <br><br>
+        <label for="">Confirm Password</label>
+        <input type="password" name="" id="confirmpassword" required placeholder="ConfirmPassword">
+        <input type="submit" value="REGISTER" id="submit">
+        <div class="goto">
+            <p>If alredy Registered</p>
+            <a href="./Login.html" target="_blank">Login here</a>
+        </div>
+    </form>
+    <script>
+        var a = document.forms
+
+        a[0].addEventListener("submit", function (event) {
+            event.preventDefault()
+            var userName = document.getElementById("username").value;
+            var email = document.getElementById("e-mail").value;
+            var dob = document.getElementById("dob").value;
+            var Password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmpassword").value;
+
+            if (Password != confirmPassword) {
+                alert("Password Does not match")
+            }
+
+            var userdata = {
+                userName: userName,
+                eMail: email,
+                Dob: dob,
+                passWord: Password
+            }
+
+            localStorage.setItem("users", JSON.stringify(userdata))
+            if (Password == confirmPassword) {
+                window.open("./Login.html")
+            }
+        })</script>
+</body>
+
+</html>

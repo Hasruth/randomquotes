@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: antiquewhite;
+        }
+
+        #quote-container {
+            background-color: #9dcb97;
+            border: 5px solid;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            border-radius: 40px;
+            margin-top: 10%;
+
+        }
+
+        #quote {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+
+        }
+
+        #author {
+            font-style: italic;
+        }
+
+        #new-quote {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: 2px solid black;
+            cursor: pointer;
+            border-radius: 13px;
+        }
+
+        #new-quote:hover {
+            background-color: #a03636;
+        }
+
+        h1 {
+            text-decoration: underline;
+            animation: skew 3s linear infinite;
+
+        }
+
+        @keyframes skew {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.4);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #goback {
+            background-color: #1357a7;
+            color: white;
+            border: 2px solid black;
+            position: relative;
+            display: flex;
+            top: 4px;
+            left: 40px;
+            padding: 7px 15px 8px 15px;
+            text-align: center;
+            border-radius: 9px;
+        }
+
+        #goback:hover {
+            background-color: #a03636;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Random Quote Generator</h1>
+    <div id="quote-container">
+        <p id="quote">Click the button below to generate a random quote!</p>
+        <p id="author"></p>
+        <button id="new-quote">New Quote</button>
+        <button id="goback" onclick="window.close('./Login.html')"><b>←</b></button>
+    </div>
+
+    <script>
+
+        const quotes = [
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+            { text: "In the end, it's not the years in your life that count. It's the life in your years.", author: "Abraham Lincoln" },
+            { text: "The greatest glory in living lies not in never falling, but in rising every time we fall.", author: "Nelson Mandela" },
+            { text: "Life is either a daring adventure or nothing at all.", author: "Helen Keller" },
+            { text: "Every child is an artist the problem is staying an artist when you grow up", author: "Pablo Picasso" },
+            { text: "Dont think about making art just get it done.Let everyone else decide if its good or bad, whether they love it or hate it.While they are deciding make even more art.", author: "Andy Warhol" },
+            { text: "Art is a collaboration between God and the artist, and the less the artist does the better.", author: "Andre Gide" },
+            { text: "Every artist was first an amateur.", author: "Ralph Waldo Emerson" },
+            { text: "I found I could say things with color and shapes that I couldn't say any other way things I had no words for.", author: "Georgia O’Keeffe" }
+
+        ]
+       
+        const quoteText = document.getElementById('quote');
+        const authorText = document.getElementById('author');
+        const newQuoteBtn = document.getElementById('new-quote');
+
+        newQuoteBtn.addEventListener("click", () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length)
+            const randomquote = quotes[randomIndex]
+            const { text, author } = randomquote
+            quoteText.innerText = text
+            authorText.innerText = author
+        })
+    </script>
+</body>
+
+</html>
